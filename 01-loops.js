@@ -149,5 +149,5 @@ const getDenominations = x => {
 //console.log(sortDescending(numbers))
 //console.log(sortByLength(students))
 //console.log(insertAge(numbers, students))
-console.log(findMissingNum(trickyArray)) //How to skip the last one?
+console.log(findMissingNum(trickyArray))
 //console.log(getDenominations(27.58))
