@@ -100,14 +100,12 @@ const insertAge = (a1, a2) => {
 
 // 20119. In the following array, number 6 is missing. Create a function that returns the missing number.
 const findMissingNum = a => {
-	let dif = a[0]
 	let output = []
-	a.forEach(( n, i) => {
-		if (n+dif != a[i+dif]) {
-			output.push(n+dif)
+	for (var i = 0; i < a.length; i++) {
+		if (a[i] != i+1) {
+			return i+1
 		}
-	})
-	return output
+	}
 }
 
 // 20120. Given the following currency denominations create a function that returns an array with separate denominations needed to reach the amount passed into the function. Optimize for higher denominations.
@@ -151,5 +149,5 @@ const getDenominations = x => {
 //console.log(sortDescending(numbers))
 //console.log(sortByLength(students))
 //console.log(insertAge(numbers, students))
-//console.log(findMissingNum(trickyArray)) //How to skip the last one?
-console.log(getDenominations(27.58))
+console.log(findMissingNum(trickyArray)) //How to skip the last one?
+//console.log(getDenominations(27.58))
