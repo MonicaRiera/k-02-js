@@ -80,5 +80,5 @@ const b = (f, x, y, z) => {
 //console.log(splitCurrencies(prices))
 //console.log(findPalindromes(names))
 //console.log(getRomans(1994))
-//fizzBuzz(0, 20) //Not skiping zero
+fizzBuzz(0, 20)
 //console.log(b(a, 8, 2, 4))
