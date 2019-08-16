@@ -42,7 +42,7 @@ const getRomans = x => {
 	let output = []
 	i = 0
 	while (i < romanNumerals.length) {
-		if (x > romanNumerals[i].v) {
+		if (x >= romanNumerals[i].v) {
 			x = x - romanNumerals[i].v
 			output.push(romanNumerals[i].s)
 		} else {
@@ -55,4 +55,4 @@ const getRomans = x => {
 //console.log(flipPhrase(phrase))
 //console.log(splitCurrencies(prices))
 //console.log(findPalindromes(names))
-console.log(getRomans(1994)) //Missing last number
+console.log(getRomans(1994))
