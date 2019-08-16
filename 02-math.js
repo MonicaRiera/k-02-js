@@ -13,10 +13,16 @@ const roundPrices = a => {
 
 // 20203. Create a function that takes 2 numbers as parameters and returns the first number rounded to the number of decimals defined by the second parameter.
 const roundDecimals = (num, dec) => {
-	return num.toFixed(dec)
+	return Number(num.toFixed(dec))
+}
+
+// 20204. Create a function that takes 2 numbers as parameters and returns the first number to the power of the second number.
+const power = (num, pow) => {
+	return Math.pow(num, pow)
 }
 
 //console.log(roundNumber(3.14))
 //console.log(roundNumber(15.9))
 //console.log(roundPrices(products))
-console.log(roundDecimals(35.158743, 3))
+//console.log(roundDecimals(35.158743, 3))
+//console.log(power(2, 8))
