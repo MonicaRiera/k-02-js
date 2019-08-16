@@ -1,7 +1,7 @@
 let phrase = 'JavaScript is the best'
 let prices = ['$22', '€99', '$75', '£80', '€43', '$22']
 let names = ['anna', 'john', 'bob', 'frank']
-let romanNumerals = [{v:1000, s:'M'}, {v:900, s:'CM'}, {v:500, s:'D'}, {v:100, s:'C'}, {v:90, s:'XC'}, {v:50, s:'L'}, {v:40, s:'XL'}, {v:10, s:'X'}, {v:9, s:'IX'}, {v:5, s:'V'}, {v:4, s:'IV'}, {v:1, s:'I'}]
+let romanNumerals = [{v:1000, s:'M'}, {v:900, s:'CM'}, {v:500, s:'D'}, {v:400, s:'CD'}, {v:100, s:'C'}, {v:90, s:'XC'}, {v:50, s:'L'}, {v:40, s:'XL'}, {v:10, s:'X'}, {v:9, s:'IX'}, {v:5, s:'V'}, {v:4, s:'IV'}, {v:1, s:'I'}]
 
 // 20301. Flip each word in phrase and return a single string
 const flipPhrase = p => {
@@ -52,7 +52,24 @@ const getRomans = x => {
 	return output.join('')
 }
 
+// 20305. Create a function that loops numbers from 0 to 20. For each number, if the number is a multiple of 3, log fizz; if the number is a multiple of 5, log buzz; if the number is a multiple of both 3 and 5, log fizzbuzz; for all other numbers, log the number itself.
+const fizzBuzz = (init, fin) => {
+	for (var i = init; i <= fin; i++) {
+		let mul3 = i%3
+		let mul5 = i%5
+
+		if (!mul3 && !mul5) {
+			console.log(`${i} fizzbuzz`)
+		} else if (!mul3) {
+			console.log(`${i} fizz`)
+		} else if (!mul5) {
+			console.log(`${i} buzz)
+		}
+	}
+}
+
 //console.log(flipPhrase(phrase))
 //console.log(splitCurrencies(prices))
 //console.log(findPalindromes(names))
-console.log(getRomans(1994))
+//console.log(getRomans(1994))
+//fizzBuzz(0, 20) //Not skiping zero
