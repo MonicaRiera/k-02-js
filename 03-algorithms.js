@@ -11,4 +11,18 @@ const flipPhrase = p => {
 	return output.join(' ')
 }
 
+// 20302. Convert the array of prices into the following array of objects. Make sure that the value property is of type number.
+const splitCurrencies = a => {
+	return a.map(p => {
+		let e = p.split('')
+		let c = e.shift()
+		let v = e.join('')
+		return {
+			currency: c,
+			value: Number(v)
+		}
+	})
+}
+
 //console.log(flipPhrase(phrase))
+//console.log(splitCurrencies(prices))
