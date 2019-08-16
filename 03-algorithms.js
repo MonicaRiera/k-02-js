@@ -63,9 +63,17 @@ const fizzBuzz = (init, fin) => {
 		} else if (!mul3) {
 			console.log(`${i} fizz`)
 		} else if (!mul5) {
-			console.log(`${i} buzz)
+			console.log(`${i} buzz`)
+		} else {
+			console.log(i);
 		}
 	}
+}
+
+// 20306. Create a function a that takes 2 numbers as parameters and returns their sum. Create a function b that takes 4 parameters, the first is a function that takes itself 2 parameters, the other 3 are numbers. Call function b and pass as parameters function a and 3 numbers. function b should trigger function a passing as parameters the first 2 numbers, therefore getting their sum, then subtract the last number and return the result.
+const a = (x, y) => x + y
+const b = (f, x, y, z) => {
+	return f(x, y) - z
 }
 
 //console.log(flipPhrase(phrase))
@@ -73,3 +81,4 @@ const fizzBuzz = (init, fin) => {
 //console.log(findPalindromes(names))
 //console.log(getRomans(1994))
 //fizzBuzz(0, 20) //Not skiping zero
+//console.log(b(a, 8, 2, 4))
