@@ -1,6 +1,7 @@
 let phrase = 'JavaScript is the best'
 let prices = ['$22', '€99', '$75', '£80', '€43', '$22']
 let names = ['anna', 'john', 'bob', 'frank']
+let romanNumerals = [{v:1000, s:'M'}, {v:900, s:'CM'}, {v:500, s:'D'}, {v:100, s:'C'}, {v:90, s:'XC'}, {v:50, s:'L'}, {v:40, s:'XL'}, {v:10, s:'X'}, {v:9, s:'IX'}, {v:5, s:'V'}, {v:4, s:'IV'}, {v:1, s:'I'}]
 
 // 20301. Flip each word in phrase and return a single string
 const flipPhrase = p => {
@@ -36,6 +37,22 @@ const findPalindromes = a => {
 	return output
 }
 
+// 20304. Create a function that, given any number (positive integer) returns the number in Roman numerals.
+const getRomans = x => {
+	let output = []
+	i = 0
+	while (i < romanNumerals.length) {
+		if (x > romanNumerals[i].v) {
+			x = x - romanNumerals[i].v
+			output.push(romanNumerals[i].s)
+		} else {
+			i++
+		}
+	}
+	return output.join('')
+}
+
 //console.log(flipPhrase(phrase))
 //console.log(splitCurrencies(prices))
-console.log(findPalindromes(names))
+//console.log(findPalindromes(names))
+console.log(getRomans(1994)) //Missing last number
