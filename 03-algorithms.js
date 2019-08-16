@@ -24,5 +24,18 @@ const splitCurrencies = a => {
 	})
 }
 
+// 20303. From the array names return only the palindromes (a palindrome is a word that reads exactly the same from left to right and backwards).
+const findPalindromes = a => {
+	let output = []
+	a.forEach(n => {
+		let reverse = flipPhrase(n)
+		if (n == reverse) {
+			output.push(n)
+		}
+	})
+	return output
+}
+
 //console.log(flipPhrase(phrase))
 //console.log(splitCurrencies(prices))
+console.log(findPalindromes(names))
