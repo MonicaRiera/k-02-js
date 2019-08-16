@@ -5,16 +5,13 @@ const b = (f, t) => {
 }
 
 // 20402. Create a function that logs 'Hello' and the number of seconds elapsed, every second, then stops after 5 seconds.
-const greeting = () => {
-	console.log('Hello ' + i)
-	i++
-}
-
 const greetingCounter = () => {
 	i = 1;
-	let interval = setInterval(f => greeting(i), 1000)
+	let interval = setInterval(() => {
+		console.log(`Hello ${i}`)
+		i++
+	}, 1000)
 	setTimeout(f => clearInterval(interval), 6000)
-
 }
 
 //b(a, 3)
