@@ -21,8 +21,20 @@ const power = (num, pow) => {
 	return Math.pow(num, pow)
 }
 
+// 20205. Create a function that returns a random number between 1 and 10.
+const getRandom = () => {
+	return Math.round(Math.random()*9+1)
+}
+
+// 20206. Create a function that takes a number as parameter and returns a random number between 1 and the parameter.
+const getRandomWithMax = max => {
+	return Math.round(Math.random()*(max-1)+1)
+}
+
 //console.log(roundNumber(3.14))
 //console.log(roundNumber(15.9))
 //console.log(roundPrices(products))
 //console.log(roundDecimals(35.158743, 3))
 //console.log(power(2, 8))
+//console.log(getRandom())
+console.log(getRandomWithMax(5))
