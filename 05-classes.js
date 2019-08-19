@@ -27,7 +27,7 @@ let Employee = class {
 let makeEmployees = (n, j) => {
 	return names.map( (e, i) => {
 		return new Employee(e, j[i])
-	} )
+	})
 }
 
 //console.log(makeEmployees(names, jobs))
@@ -66,7 +66,7 @@ let fight = (fighter) => {
 }
 
 let karateka = new Karateka('Monica')
-fight(karateka)
+//fight(karateka)
 
 
 // 20504.
@@ -79,3 +79,71 @@ fight(karateka)
 // ii. Applies the discounts using the applyDiscount() function within products
 // iii. Creates a receipt using the Receipt class
 // iv. logs the receipt and the total using the calcTotal function within Receipt
+let prodNames = ['apples', 'bananas', 'bread', 'cookies', 'broccoli', 'onions']
+let prodPrices = [20, 12, 24, 53, 32, 15]
+let prodDiscounts = [0, 0, 10, 25, 0, 5]
+
+let Product = class {
+	constructor(name, price) {
+		this.name = name
+		this.price = price
+	}
+
+	applyDiscount(discount) {
+		this.price = this.price*(1-discount/100)
+		return this
+	}
+}
+
+let Receipt = class {
+	constructor(products) {
+		this.products = products
+	}
+
+	calcTotal() {
+		let sum = 0
+		this.products.forEach(p => {
+			sum += p.price
+		})
+		//return `Total: ${sum}`
+		return sum
+	}
+}
+
+let getReceipt = (names, prices, discounts) => {
+	let products = names.map((e, i) => {
+		return new Product(e, prices[i]).applyDiscount(discounts[i])
+	})
+	return new Receipt(products)
+	//console.log(receipt)
+	//console.log(receipt.calcTotal())
+}
+
+let printReceipt = (receipt) => {
+	let horizontalLine = generatePrintLine('', '-', 26)
+	console.log(horizontalLine)
+
+	let productLines = receipt.products.forEach(p => {
+		return
+		generatePrintLine(`| ${p.name}`, ' ', 10-p.name.length) +
+		generatePrintLine(`| $${p.price.toFixed(2)}`, ' ', 10-(String(p.price.toFixed(2)).length)) + '|'
+		console.log(productLine)
+	})
+
+	console.log(horizontalLine)
+	let totalLine =
+	generatePrintLine(`| Total`, ' ', 5) +
+	generatePrintLine(`| $${receipt.calcTotal().toFixed(2)}`, ' ', String(receipt.calcTotal()).length - 1) + '|'
+	console.log(totalLine)
+	console.log(horizontalLine)
+}
+
+let generatePrintLine = (string, separator, length) => {
+	for (var i = 0; i < length; i++) {
+		string += separator
+	}
+	return string
+}
+
+let receipt = getReceipt(prodNames, prodPrices, prodDiscounts)
+printReceipt(receipt)
