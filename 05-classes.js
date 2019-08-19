@@ -25,7 +25,7 @@ let Employee = class {
 }
 
 let makeEmployees = (n, j) => {
-	return names.map( (e, i) => {
+	return n.map( (e, i) => {
 		return new Employee(e, j[i])
 	})
 }
@@ -49,7 +49,9 @@ let Karateka = class {
 	}
 
 	increaseRank() {
-		this.belt = belts[belts.indexOf(this.belt) + 1]
+		if (this.belt != 'black') {
+			this.belt = belts[belts.indexOf(this.belt) + 1]
+		}
 	}
 }
 
@@ -114,25 +116,24 @@ let getReceipt = (names, prices, discounts) => {
 	let products = names.map((e, i) => {
 		return new Product(e, prices[i]).applyDiscount(discounts[i])
 	})
+	// let receipt = new Receipt(products)
+	// console.log(receipt)
+	// console.log(receipt.calcTotal())
 	return new Receipt(products)
-	//console.log(receipt)
-	//console.log(receipt.calcTotal())
 }
 
 let printReceipt = (receipt) => {
 	let horizontalLine = generatePrintLine('', '-', 26)
 	console.log(horizontalLine)
 
-	let productLines = receipt.products.forEach(p => {
-		return
-		generatePrintLine(`| ${p.name}`, ' ', 10-p.name.length) +
+	receipt.products.forEach(p => {
+		let productLine = generatePrintLine(`| ${p.name}`, ' ', 10-p.name.length) +
 		generatePrintLine(`| $${p.price.toFixed(2)}`, ' ', 10-(String(p.price.toFixed(2)).length)) + '|'
 		console.log(productLine)
 	})
 
 	console.log(horizontalLine)
-	let totalLine =
-	generatePrintLine(`| Total`, ' ', 5) +
+	let totalLine = generatePrintLine(`| Total`, ' ', 5) +
 	generatePrintLine(`| $${receipt.calcTotal().toFixed(2)}`, ' ', String(receipt.calcTotal()).length - 1) + '|'
 	console.log(totalLine)
 	console.log(horizontalLine)
