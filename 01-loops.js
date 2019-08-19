@@ -109,9 +109,9 @@ const findMissingNum = a => {
 }
 
 // 20120. Given the following currency denominations create a function that returns an array with separate denominations needed to reach the amount passed into the function. Optimize for higher denominations.
-const getDenominations = x => {
+const getDenominations = (x, dens) => {
 	let output = []
-	// currencyDen.forEach(n => {
+	// dens.forEach(n => {
 	// 	let times = (x - (x%n))/n
 	// 	for (var i = 0; i < times; i++) {
 	// 		output.push(n)
@@ -119,10 +119,10 @@ const getDenominations = x => {
 	// 	x = x%n
 	// })
 	i = 0
-	while (i <= currencyDen.length) {
-		if (x > currencyDen[i]) {
-			x = x - currencyDen[i]
-			output.push(currencyDen[i])
+	while (i < dens.length) {
+		if (x.toFixed(2) >= dens[i]) {
+			x = x - dens[i]
+			output.push(dens[i])
 		} else {
 			i++
 		}
@@ -149,5 +149,5 @@ const getDenominations = x => {
 //console.log(sortDescending(numbers))
 //console.log(sortByLength(students))
 //console.log(insertAge(numbers, students))
-console.log(findMissingNum(trickyArray))
-//console.log(getDenominations(27.58))
+//console.log(findMissingNum(trickyArray))
+console.log(getDenominations(27.58, currencyDen))
