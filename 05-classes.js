@@ -1,0 +1,31 @@
+// 20501. Create a class Car. Create a buildCar function that takes make, model and color and returns a new instance of Car
+let Car = class {
+	constructor() {}
+	buildCar(make, model, color) {
+		this.make = make
+	}
+}
+
+// 20502. Create a class Employee with properties name and job. Create a makeEmployees function that takes the 2 arrays of matching names and jobs as parameters and, using the Employee class, returns an array of objects
+let names = ['Alice', 'Bernard', 'Catherine', 'David']
+let jobs = ['Accountant', 'Biz Manager', 'Cleaner', 'Director']
+
+// 20503.
+// 1. Create a class Karateka, that takes a name as parameter and has the belt property set to the first belt in belts by default.
+// 2. Karateka should also have an increaseRank function that upgrades the belt by 1 step (from the array belts)
+// 3. Create an instance of Karateka with your name
+// 4. Create a fight function that takes your instance of Karateka as a parameter
+// 5. Within the fight function, every second, for a maximum of 20 seconds, draw a random score between 1 and 10
+// 6. If the score is higher than 8, upgrade the belt of your Karateka instance, by calling the increaseRank function
+// 7. Every second, within the fight, log the score and the instance of Karateka
+
+// 20504.
+// 1. Create a class Product with parameters name and price
+// 2. Also add the function applyDiscount() inside Product that takes a parameter discount and applies the discount to the Product's price (discount should be a number, where 10 represents 10% discount)
+// 3. Create a class Receipt that takes an array of objects called products as a parameter
+// 4. Also add the function calcTotal() inside Receipt that takes products and returns the sum of the products' prices.
+// 5. Create a function getReceipt() that takes names, prices and discounts as parameters, then
+// i. Creates objects with name and price using the Product class as factory
+// ii. Applies the discounts using the applyDiscount() function within products
+// iii. Creates a receipt using the Receipt class
+// iv. logs the receipt and the total using the calcTotal function within Receipt
