@@ -1,14 +1,36 @@
 // 20501. Create a class Car. Create a buildCar function that takes make, model and color and returns a new instance of Car
 let Car = class {
-	constructor() {}
-	buildCar(make, model, color) {
-		this.make = make
+	constructor(maker, model, color) {
+		this.maker = maker
+		this.model = model
+		this.color = color
 	}
 }
+
+let buildCar = (maker, model, color) => {
+	return new Car(maker, model, color)
+}
+
+//console.log(buildCar('Toyota', 'Avensis', 'Blue'))
 
 // 20502. Create a class Employee with properties name and job. Create a makeEmployees function that takes the 2 arrays of matching names and jobs as parameters and, using the Employee class, returns an array of objects
 let names = ['Alice', 'Bernard', 'Catherine', 'David']
 let jobs = ['Accountant', 'Biz Manager', 'Cleaner', 'Director']
+
+let Employee = class {
+	constructor(name, job) {
+		this.name = name
+		this.job = job
+	}
+}
+
+let makeEmployees = (n, j) => {
+	return names.map( (e, i) => {
+		return new Employee(e, j[i])
+	} )
+}
+
+console.log(makeEmployees(names, jobs))
 
 // 20503.
 // 1. Create a class Karateka, that takes a name as parameter and has the belt property set to the first belt in belts by default.
