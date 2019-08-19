@@ -29,8 +29,8 @@ const splitCurrencies = a => {
 const findPalindromes = a => {
 	let output = []
 	a.forEach(n => {
-		let reverse = flipPhrase(n)
-		if (n == reverse) {
+		let reverse = flipPhrase(n.toLowerCase())
+		if (n.toLowerCase() == reverse) {
 			output.push(n)
 		}
 	})
@@ -38,18 +38,19 @@ const findPalindromes = a => {
 }
 
 // 20304. Create a function that, given any number (positive integer) returns the number in Roman numerals.
-const getRomans = x => {
-	let output = []
+const getRomans = (x, a) => {
+	let output = ''
 	i = 0
-	while (i < romanNumerals.length) {
-		if (x >= romanNumerals[i].v) {
-			x = x - romanNumerals[i].v
-			output.push(romanNumerals[i].s)
+	while (i < a.length) {
+		if (x >= a[i].v) {
+			x = x - a[i].v
+			output += a[i].s
+			//output.push(romanNumerals[i].s)
 		} else {
 			i++
 		}
 	}
-	return output.join('')
+	return output
 }
 
 // 20305. Create a function that loops numbers from 0 to 20. For each number, if the number is a multiple of 3, log fizz; if the number is a multiple of 5, log buzz; if the number is a multiple of both 3 and 5, log fizzbuzz; for all other numbers, log the number itself.
@@ -72,13 +73,12 @@ const fizzBuzz = (init, fin) => {
 
 // 20306. Create a function a that takes 2 numbers as parameters and returns their sum. Create a function b that takes 4 parameters, the first is a function that takes itself 2 parameters, the other 3 are numbers. Call function b and pass as parameters function a and 3 numbers. function b should trigger function a passing as parameters the first 2 numbers, therefore getting their sum, then subtract the last number and return the result.
 const a = (x, y) => x + y
-const b = (f, x, y, z) => {
-	return f(x, y) - z
-}
+const b = (f, x, y, z) => f(x, y) - z
+
 
 //console.log(flipPhrase(phrase))
 //console.log(splitCurrencies(prices))
-//console.log(findPalindromes(names))
-//console.log(getRomans(1994))
-fizzBuzz(0, 20)
+console.log(findPalindromes(names))
+//console.log(getRomans(1994, romanNumerals))
+//fizzBuzz(0, 20)
 //console.log(b(a, 8, 2, 4))
