@@ -30,7 +30,7 @@ let makeEmployees = (n, j) => {
 	} )
 }
 
-console.log(makeEmployees(names, jobs))
+//console.log(makeEmployees(names, jobs))
 
 // 20503.
 // 1. Create a class Karateka, that takes a name as parameter and has the belt property set to the first belt in belts by default.
@@ -40,6 +40,34 @@ console.log(makeEmployees(names, jobs))
 // 5. Within the fight function, every second, for a maximum of 20 seconds, draw a random score between 1 and 10
 // 6. If the score is higher than 8, upgrade the belt of your Karateka instance, by calling the increaseRank function
 // 7. Every second, within the fight, log the score and the instance of Karateka
+let belts = ['white', 'yellow', 'orange', 'green', 'blue', 'brown', 'black']
+
+let Karateka = class {
+	constructor(name) {
+		this.name = name
+		this.belt = belts[0]
+	}
+
+	increaseRank() {
+		this.belt = belts[belts.indexOf(this.belt) + 1]
+	}
+}
+
+let fight = (fighter) => {
+	let interval = setInterval(() => {
+		let random = Math.round(Math.random()*9+1)
+		if (random > 8) {
+			fighter.increaseRank()
+		}
+		console.log(random)
+		console.log(fighter.belt)
+	}, 1000)
+	setTimeout(f => clearInterval(interval), 21000)
+}
+
+let karateka = new Karateka('Monica')
+fight(karateka)
+
 
 // 20504.
 // 1. Create a class Product with parameters name and price
