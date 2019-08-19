@@ -33,18 +33,51 @@ let haveShower = () => {
 	})
 }
 
-getUp()
-.then(res => {
-	console.log(res)
-	haveShower()
-	.then(res => {
-		console.log(res)
-		haveBreakfast()
-		.then(res => {
-			console.log(res)
-			brushTeeth()
-			.then(res => console.log(res))
-		})
+// getUp()
+// .then(res => {
+// 	console.log(res)
+// 	haveShower()
+// 	.then(res => {
+// 		console.log(res)
+// 		haveBreakfast()
+// 		.then(res => {
+// 			console.log(res)
+// 			brushTeeth()
+// 			.then(res => console.log(res))
+// 		})
+// 	})
+// })
+// .catch(err => console.log(err))
+
+// 20602.
+// 1. Create a function makeCoffee that resolves with coffee after 10 seconds.
+// 2. Create a function makeEggs that resolves with eggs after 5 seconds.
+// 3. Create a function makeToast that resolves with toast after 6 seconds.
+// 4. Create a function makeBacon that resolves with bacon after 8 seconds.
+// 5. Call all the functions at once and when all have resolved, log a string containing an array with all the responses.
+let makeCoffee = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {res('coffee')}, 10000)
 	})
-})
-.catch(err => console.log(err))
+}
+
+let makeEggs = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {res('eggs')}, 5000)
+	})
+}
+
+let makeToast = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {res('toast')}, 6000)
+	})
+}
+
+let makeBacon = () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {res('bacon')}, 8000)
+	})
+}
+
+Promise.all([makeCoffee(), makeEggs(), makeToast(), makeBacon()])
+.then(res => console.log(res))
