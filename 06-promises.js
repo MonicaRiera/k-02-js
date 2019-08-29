@@ -79,8 +79,8 @@ let makeBacon = () => {
 	})
 }
 
-// Promise.all([makeCoffee(), makeEggs(), makeToast(), makeBacon()])
-// .then(res => console.log(res))
+Promise.all([makeCoffee(), makeEggs(), makeToast(), makeBacon()])
+.then(res => console.log(`Breakfast is ready: ${res}`))
 
 // 20603. Create 3 racing horses: "Speedy", "Jackpot" and "Red". Each one will finish the race and resolve with its name after a random time between 1 and 4 seconds. Start the race and log the winning horse:
 let Horse = class {
@@ -96,5 +96,5 @@ let run = (horse) => {
 	})
 }
 
-Promise.race([run(new Horse('Speedy')), run(new Horse('Jackpot')), run(new Horse('Red'))])
-.then(res => console.log(res))
+// Promise.race([run(new Horse('Speedy')), run(new Horse('Jackpot')), run(new Horse('Red'))])
+// .then(res => console.log(res))

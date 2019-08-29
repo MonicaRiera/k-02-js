@@ -116,9 +116,9 @@ let getReceipt = (names, prices, discounts) => {
 	let products = names.map((e, i) => {
 		return new Product(e, prices[i]).applyDiscount(discounts[i])
 	})
-	// let receipt = new Receipt(products)
-	// console.log(receipt)
-	// console.log(receipt.calcTotal())
+	 // let receipt = new Receipt(products)
+	 // console.log(receipt)
+	 // console.log(receipt.calcTotal())
 	return new Receipt(products)
 }
 
